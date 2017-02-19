@@ -10,6 +10,8 @@
 <script type="text/javascript" src="../../extras/jquery.min.1.7.js"></script>
 <script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
 <script type="text/javascript" src="../../lib/hash.js"></script>
+<!-- <script type="text/javascript" src="js/pdfobject.min.js"></script> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
 </head>
@@ -18,7 +20,9 @@
 <div id="canvas">
 
 <div class="zoom-icon zoom-icon-in"></div>
-
+<div id="pdf-mobile" class="hidden">
+	<iframe src="http://docs.google.com/gview?url=http://infolab.stanford.edu/pub/papers/google.pdf&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe>
+</div>
 <div class="magazine-viewport">
 	<div class="container">
 		<div class="magazine">
@@ -55,7 +59,11 @@
 </div> -->
 <script type="text/javascript">
 
-function loadApp() {
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+    // Take the user to a different screen here.
+}else{
+
+	function loadApp() {
 
  	$('#canvas').fadeIn(1000);
 
@@ -459,6 +467,9 @@ yepnope({
 	both: ['../../lib/zoom.min.js', 'js/magazine.js', 'css/magazine.css'],
 	complete: loadApp
 });
+
+}
+
 
 </script>
 
